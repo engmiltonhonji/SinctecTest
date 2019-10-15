@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SinctecWeb.Models.Contact>
+
+@{
+    ViewBag.Title = "Lista de Contatos";
+}
+
+<h2>Index</h2>
+
+<!--The JqueryLibrary for use in the screen-->
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+
+
+<p>
+    @Html.ActionLink("Novo Contato", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Endereço")
+        </th>
+        <th>
+            @Html.DisplayName("Número")
+        </th>
+        <th>
+            @Html.DisplayName("Bairro")
+        </th>
+        <th>
+            @Html.DisplayName("Telefone")
+        </th>
+        <th>
+            @Html.DisplayName("Celular")
+        </th>
+        <th>
+            @Html.DisplayName("E-mail")
+        </th>
+        <th>
+            @Html.DisplayName("Home Page")
+        </th>
+        <th>
+            @Html.DisplayName("Observação")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NeighborhoodContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TelephoneContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CellphoneContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomePageContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ObservationContact)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdContact }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.IdContact }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.IdContact })
+        </td>
+    </tr>
+}
+
+</table>
